@@ -431,13 +431,13 @@
                      <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
+                            Samantha Animal Supply
                         </div>
                         <!-- Footer Logo End -->
 
                         <!-- About Footer Content Start -->
                          <div class="about-footer-content">
-                            <p>Experience the ease and convenience of renting a car with Novaride. </p>
+                            <p>Experience the ease and convenience of ordering food items with Samantha Animal Supply. </p>
                          </div>
                         <!-- About Footer Content End -->
                      </div>

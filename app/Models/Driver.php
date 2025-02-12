@@ -12,8 +12,4 @@ class Driver extends Model
     protected $fillable = [
         'name', 'email', 'mobile', 'license_number', 'license_expiry_date'
     ];
-    public function bookings()
-    {
-        return $this->hasMany(Booking::class);
-    }
 }

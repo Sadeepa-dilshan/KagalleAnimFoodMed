@@ -6,13 +6,13 @@
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="{{url("images/footer-logo.svg")}}" alt="">
+                            {{-- <img src="{{url("images/footer-logo.svg")}}" alt=""> --}}
                         </div>
                         <!-- Footer Logo End -->
 
                         <!-- About Footer Content Start -->
                         <div class="about-footer-content">
-                            <p>Experience the ease and convenience of renting a car with CIAO. </p>
+                            <p>Experience the ease and convenience of ordering animal foods and medicines with Samantha Animal Supply. </p>
                         </div>
                         <!-- About Footer Content End -->
                     </div>
@@ -74,7 +74,7 @@
                     <div class="col-lg-6 col-md-7">
                         <!-- Footer Copyright Start -->
                         <div class="footer-copyright-text">
-                            <p>© 2024 CIAO Travels. All rights reserved.</p>
+                            <p>© 2024 Samantha Animal Food Supply Travels. All rights reserved.</p>
                         </div>
                         <!-- Footer Copyright End -->
                     </div>

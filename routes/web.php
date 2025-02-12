@@ -2,9 +2,12 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\AnimalFoodController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
@@ -84,6 +87,9 @@ Route::middleware(['auth', 'role:admin,agent'])->group(function () {
 
 //admin routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('animals', AnimalController::class);
+    Route::resource('foods', FoodController::class);
+    Route::resource('animal-foods', AnimalFoodController::class);
 
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 

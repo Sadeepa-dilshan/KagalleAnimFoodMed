@@ -4,7 +4,8 @@
                 <div class="container">
                     <!-- Logo Start -->
                     <a class="navbar-brand" href="/">
-                        <img src="{{url("images/logo.svg")}}" alt="Logo">
+                        {{-- <img src="{{url("images/logo.svg")}}" alt="Logo"> --}}
+                        Kagalle AnimFoods
                     </a>
                     <!-- Logo End -->
 

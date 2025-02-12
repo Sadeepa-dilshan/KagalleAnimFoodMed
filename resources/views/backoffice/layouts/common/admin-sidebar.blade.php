@@ -31,6 +31,24 @@
                     </a>
                 </li>
 		        <li>
+                    <a href="{{ url('animals') }}">
+                        <i data-feather="home"></i>
+                        <span data-key="t-dashboard">Animal Management</span>
+                    </a>
+                </li>
+		        <li>
+                    <a href="{{ url('foods') }}">
+                        <i data-feather="home"></i>
+                        <span data-key="t-dashboard">Foods Management</span>
+                    </a>
+                </li>
+		        <li>
+                    <a href="{{ url('animal-foods') }}">
+                        <i data-feather="home"></i>
+                        <span data-key="t-dashboard">Animal Wice Foods</span>
+                    </a>
+                </li>
+		        <li>
                     <a href="{{ url('') }}">
                         <i data-feather="home"></i>
                         <span data-key="t-dashboard">Vehicle Management</span>
