@@ -8,7 +8,7 @@
                         <img src="{{asset("/favicon.png")}}" alt="" height="24">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{asset("/favicon.png")}}" alt="" height="24"> <span class="logo-txt">CIAO</span>
+                        <img src="{{asset("/favicon.png")}}" alt="" height="24"> <span class="logo-txt">Samantha</span>
                     </span>
                 </a>
 
@@ -17,7 +17,7 @@
                         <img src="{{asset("/favicon.png")}}" alt="" height="24">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{asset("/favicon.png")}}" alt="" height="24"> <span class="logo-txt">CIAO</span>
+                        <img src="{{asset("/favicon.png")}}" alt="" height="24"> <span class="logo-txt">Samantha</span>
                     </span>
                 </a>
             </div>
