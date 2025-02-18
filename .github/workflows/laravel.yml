@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          protocol: ftps  # Change to "ftp" or "ftps-legacy" if needed
+          protocol: sftp  # Change to "ftp" or "ftps-legacy" if needed
           server-dir: /public_html/  # Change based on your hosting setup
           local-dir: ./
           log-level: verbose  # Enable detailed logs
