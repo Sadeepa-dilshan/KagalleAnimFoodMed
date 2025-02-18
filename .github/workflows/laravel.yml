@@ -27,13 +27,7 @@ jobs:
           chmod -R 755 storage bootstrap/cache
           chmod -R 777 storage bootstrap/cache
 
-      # Debug FTP Connection First
-      - name: Test FTP Connection (Optional)
-        run: |
-          echo "Testing FTP Connection..."
-          curl -v --ssl -k --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}:${{ secrets.FTP_PORT }}/"
-
-      # Upload via FTP (Use FTPES for encrypted connection)
+      # Upload via FTP (Use FTPS for encrypted connection)
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
@@ -41,11 +35,10 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          protocol: ftpes  # Use FTPES (explicit SSL mode)
-          server-dir: /public_html/  # Update to match your cPanel setup
+          protocol: ftps  # Change to "ftp" or "ftps-legacy" if needed
+          server-dir: /public_html/  # Change based on your hosting setup
           local-dir: ./
-          timeout: 300000  # Increase timeout to 5 minutes
-          log-level: verbose  # Enable debugging logs
+          log-level: verbose  # Enable detailed logs
 
       - name: Run Migrations (Optional)
         run: php artisan migrate --force
