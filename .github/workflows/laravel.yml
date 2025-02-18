@@ -1,26 +1,47 @@
-name: Deploy to Namecheap via FTP
+name: Deploy Laravel to cPanel via FTP
 
 on:
   push:
     branches:
-      - main
+      - main  # Change this to your deployment branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3  # Change this to match your Laravel version
+          extensions: mbstring, xml, ctype, json, pdo, openssl, tokenizer, fileinfo
 
-      - name: Deploy Files via FTP
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Set Laravel Permissions
         run: |
-          lftp -e "
-          set ftp:ssl-allow no;
-          open -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -p ${{ secrets.FTP_PORT }} ${{ secrets.FTP_SERVER }};
-          mirror -R --delete --parallel=5 ./ /public_html/;
-          bye
-          "
+          chmod -R 755 storage bootstrap/cache
+          chmod -R 777 storage bootstrap/cache
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.1
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/  # Change this to match your cPanel setup
+          local-dir: ./  # Upload everything in the repo
+
+      - name: Run Migrations (Optional)
+        run: php artisan migrate --force
+        env:
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+      - name: Clear Cache
+        run: php artisan config:cache
